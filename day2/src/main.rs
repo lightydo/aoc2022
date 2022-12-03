@@ -6,7 +6,7 @@ fn main() {
     part_2(INPUT);
 }
 
-pub fn part_1(input: &'static str) -> i32 {
+pub fn part_1(input: &str) -> i32 {
     /*
         A = X = Rock
         B = Y = Paper
@@ -32,7 +32,7 @@ pub fn part_1(input: &'static str) -> i32 {
     sum
 }
 
-pub fn part_2(input: &'static str) -> i32 {
+pub fn part_2(input: &str) -> i32 {
     /*
         A = Rock
         B = Paper
