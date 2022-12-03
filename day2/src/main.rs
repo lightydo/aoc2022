@@ -2,8 +2,8 @@ pub static INPUT: &str = include_str!("../input");
 pub static TEST_INPUT: &str = include_str!("../input_test");
 
 fn main() {
-    part_1(INPUT);
-    part_2(INPUT);
+    println!("part 1 sum: {}", part_1(INPUT));
+    println!("part 2 sum: {}", part_2(INPUT));
 }
 
 pub fn part_1(input: &str) -> i32 {
@@ -28,7 +28,6 @@ pub fn part_1(input: &str) -> i32 {
             ("C", "Z") => f + 3 + 3,
             _ => unreachable!(),
         });
-    println!("part 1 sum: {}", sum);
     sum
 }
 
@@ -59,7 +58,6 @@ pub fn part_2(input: &str) -> i32 {
             ("C", "Z") => f + 1 + 6,
             _ => unreachable!(),
         });
-    println!("part 2 sum: {}", sum);
     sum
 }
 
