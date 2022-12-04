@@ -14,14 +14,16 @@ pub fn part_1(input: &str) -> i32 {
         .map(|((a, b), (c, d))| {
             let start = a.parse::<i32>().unwrap();
             let end = b.parse::<i32>().unwrap();
-            let vec1 = (start..=end).collect::<Vec<i32>>();
+            let range1 = start..=end;
             let start = c.parse::<i32>().unwrap();
             let end = d.parse::<i32>().unwrap();
-            let vec2 = (start..=end).collect::<Vec<i32>>();
-            (vec1, vec2)
+            let range2 = start..=end;
+            (range1, range2)
         })
-        .fold(0, |f, (x, y)| {
-            if x.iter().all(|item| y.contains(item)) || y.iter().all(|item| x.contains(item)) {
+        .fold(0, |f, (mut range1, mut range2)| {
+            if range1.all(|item| range2.contains(&item))
+                || range2.all(|item| range1.contains(&item))
+            {
                 f + 1
             } else {
                 f
@@ -38,14 +40,16 @@ pub fn part_2(input: &str) -> i32 {
         .map(|((a, b), (c, d))| {
             let start = a.parse::<i32>().unwrap();
             let end = b.parse::<i32>().unwrap();
-            let vec1 = (start..=end).collect::<Vec<i32>>();
+            let range1 = start..=end;
             let start = c.parse::<i32>().unwrap();
             let end = d.parse::<i32>().unwrap();
-            let vec2 = (start..=end).collect::<Vec<i32>>();
-            (vec1, vec2)
+            let range2 = start..=end;
+            (range1, range2)
         })
-        .fold(0, |f, (x, y)| {
-            if x.iter().any(|item| y.contains(item)) || y.iter().any(|item| x.contains(item)) {
+        .fold(0, |f, (mut range1, mut range2)| {
+            if range1.any(|item| range2.contains(&item))
+                || range2.any(|item| range1.contains(&item))
+            {
                 f + 1
             } else {
                 f
